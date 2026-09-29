@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+
+# Entorno y secretos
+.env
+.env.*
+
+# Datos pesados (PDFs y zips fuera de git)
+data/raw/
+*.zip
+
+# Indices vectoriales generados
+data/index/
+.chroma/
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
