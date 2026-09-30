@@ -1,32 +1,49 @@
 # Gaceta RAG Chatbot
 
-Chatbot con arquitectura **RAG** (Retrieval-Augmented Generation) que responde consultas sobre los documentos de la Gaceta Oficial.
+A **RAG** (Retrieval-Augmented Generation) chatbot that answers questions about documents from the Gaceta Oficial (Spanish-language corpus).
 
-## Estado del proyecto
+## Project status
 
-Repositorio inicial. Próximos pasos:
+- [x] Corpus ingestion — 49 Gaceta documents converted to Markdown (`data/markdown/`, ~16 MB, tracked in git); chunking lands with the retrieval pipeline
+- [x] Offline evaluation harness (`eval/`) — hit@k, MRR, out-of-corpus scoring, version comparison workflow
+- [ ] Embeddings and vector index (chromadb)
+- [ ] Retrieval pipeline — V0 TF-IDF (B) · V1 dense (A) · V2/V3 hybrid (C)
+- [ ] Generation layer, chat API and interface
 
-- [ ] Ingesta del corpus (Markdown y PDF) con chunking
-- [ ] Generación de embeddings e índice vectorial
-- [ ] Pipeline de retrieval (búsqueda semántica)
-- [ ] API e interfaz de chat
-
-## Estructura
+## Layout
 
 ```
 gaceta-rag-chatbot/
 ├── data/
-│   ├── markdown/   # Corpus en Markdown (versionado en git)
-│   └── raw/        # PDFs originales y corpus_colab.zip (ignorados por git)
+│   ├── markdown/     # Gaceta corpus in Markdown (tracked in git)
+│   └── raw/          # Original PDFs and corpus_colab.zip (gitignored)
+├── eval/             # Offline retrieval evaluation harness — see eval/README.md
+├── v_rag/            # Local Python virtualenv (not committed, not retriever versions!)
 ├── pyproject.toml
+├── requirements.txt
 └── README.md
 ```
 
-## Requisitos
+## Requirements
 
-- Python 3.11 o superior
+- Python 3.11+
+- Install dependencies: `pip install -r requirements.txt` (scikit-learn, chromadb, plotly)
 
 ## Corpus
 
-- `data/markdown/`: 49 documentos de la Gaceta convertidos a Markdown (~16 MB), versionados en este repositorio.
-- `data/raw/`: PDFs originales y `corpus_colab.zip` (~430 MB), disponibles localmente pero fuera del control de versiones.
+- `data/markdown/`: 49 Gaceta documents converted to Markdown (~16 MB), versioned in this repository.
+- `data/raw/`: original PDFs and `corpus_colab.zip` (~430 MB), available locally but outside version control.
+
+## Evaluation
+
+The retrieval layer is measured offline in `eval/` against a 25-question test set (20 answerable, 5 out-of-corpus). From `eval/`:
+
+```
+# harness self-test (no retriever modules needed)
+python eval.py --retriever stub --questions stub_questions.jsonl --k 3,5,10 --results results/stub.json
+
+# evaluate a real retriever version
+python eval.py --retriever v0 --k 3,5,10 --results results/v0.json
+```
+
+Metrics: **hit@k** (at least one relevant chunk in the top-k), **MRR**, and a **top-score signal** for out-of-corpus questions (calibrates the "do not answer" threshold). Runs are archived in `eval/results/` and compared in `eval/reports/comparison.md`. Full documentation — retriever contract, question-set schema, metric definitions — in [`eval/README.md`](eval/README.md).

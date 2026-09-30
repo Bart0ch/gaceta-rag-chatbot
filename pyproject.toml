@@ -1,7 +1,7 @@
 [project]
 name = "gaceta-rag-chatbot"
 version = "0.1.0"
-description = "Chatbot con arquitectura RAG sobre documentos de la Gaceta Oficial"
+description = "RAG chatbot over Gaceta Oficial documents (Spanish corpus)"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
