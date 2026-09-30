@@ -1,0 +1,89 @@
+{
+  "summary": {
+    "hit@3": 1.0,
+    "hit@5": 1.0,
+    "hit@10": 1.0,
+    "mrr": 1.0,
+    "questions_answerable": 1,
+    "questions_hors_corpus": 0
+  },
+  "results": [
+    {
+      "id": "q001",
+      "answerable": true,
+      "top_score": 1.0,
+      "first_relevant_rank": 1,
+      "n_relevant_in_topk": {
+        "3": 2,
+        "5": 2,
+        "10": 2
+      },
+      "hits": [
+        {
+          "rank": 1,
+          "source": "gaceta_2024.pdf",
+          "page": 12,
+          "score": 1.0,
+          "relevant": true,
+          "text": "El organismo aprobó el presupuesto extraordinario de 2024 por un total de 45 millones de euros, destinados principalmente a infraestructuras y digitalización."
+        },
+        {
+          "rank": 2,
+          "source": "gaceta_2024.pdf",
+          "page": 13,
+          "score": 0.6,
+          "relevant": true,
+          "text": "El presupuesto extraordinario de 2024 incluye una partida adicional de 8 millones de euros para programas de formación interna."
+        },
+        {
+          "rank": 3,
+          "source": "gaceta_2024.pdf",
+          "page": 11,
+          "score": 0.4,
+          "relevant": false,
+          "text": "La sesión ordinaria del organismo revisó el acta anterior y aprobó el calendario de reuniones para el primer trimestre."
+        },
+        {
+          "rank": 4,
+          "source": "gaceta_2024.pdf",
+          "page": 25,
+          "score": 0.0,
+          "relevant": false,
+          "text": "Se publicaron las bases reguladoras de las subvenciones para proyectos de investigación aplicada."
+        },
+        {
+          "rank": 5,
+          "source": "informe_anual_2023.pdf",
+          "page": 3,
+          "score": 0.0,
+          "relevant": false,
+          "text": "El informe anual de 2023 resume las actividades de la organización internacional durante el ejercicio."
+        },
+        {
+          "rank": 6,
+          "source": "informe_anual_2023.pdf",
+          "page": 7,
+          "score": 0.0,
+          "relevant": false,
+          "text": "Los ingresos totales ascendieron a 120 millones de euros, un 6% más que el año anterior."
+        },
+        {
+          "rank": 7,
+          "source": "informe_anual_2023.pdf",
+          "page": 18,
+          "score": 0.0,
+          "relevant": false,
+          "text": "El capítulo de recursos humanos describe la plantilla media y los planes de contratación."
+        },
+        {
+          "rank": 8,
+          "source": "informe_anual_2023.pdf",
+          "page": 42,
+          "score": 0.0,
+          "relevant": false,
+          "text": "Las conclusiones destacan la mejora de la eficiencia administrativa y la reducción de plazos de tramitación."
+        }
+      ]
+    }
+  ]
+}

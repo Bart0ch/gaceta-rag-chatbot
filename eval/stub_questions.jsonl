@@ -1,0 +1,1 @@
+{"id": "q001", "question": "¿Qué organismo aprobó el presupuesto extraordinario de 2024?", "answerable": true, "expected": [{"source": "gaceta_2024.pdf", "pages": [12, 13]}], "keywords": ["presupuesto extraordinario", "organismo"]}
