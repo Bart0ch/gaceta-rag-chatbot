@@ -6,8 +6,8 @@ A **RAG** (Retrieval-Augmented Generation) chatbot that answers questions about 
 
 - [x] Corpus ingestion — 49 Gaceta documents converted to Markdown (`data/markdown/`, ~16 MB, tracked in git); chunking lands with the retrieval pipeline
 - [x] Offline evaluation harness (`eval/`) — hit@k, MRR, out-of-corpus scoring, version comparison workflow
-- [ ] Embeddings and vector index (chromadb)
-- [ ] Retrieval pipeline — V0 TF-IDF (B) · V1 dense (A) · V2/V3 hybrid (C)
+- [x] Embeddings and vector index (chromadb)
+- [x] Retrieval pipeline — V0 TF-IDF · V1 dense · V2 Multi-Query · V3 HyDe
 - [ ] Generation layer, chat API and interface
 
 ## Layout
@@ -18,7 +18,7 @@ gaceta-rag-chatbot/
 │   ├── markdown/     # Gaceta corpus in Markdown (tracked in git)
 │   └── raw/          # Original PDFs and corpus_colab.zip (gitignored)
 ├── eval/             # Offline retrieval evaluation harness — see eval/README.md
-├── v_rag/            # Local Python virtualenv (not committed, not retriever versions!)
+├── rag.ipynb         # Main notebook 
 ├── pyproject.toml
 ├── requirements.txt
 └── README.md
